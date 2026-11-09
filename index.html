@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Simplificado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="painel-jogo">
+        <h1>Pac-Man Simplificado</h1>
+
+        <div class="informacoes">
+            <p>Pontuação: <strong id="pontuacao">0</strong></p>
+            <p id="mensagem">Use as setas do teclado para jogar.</p>
+        </div>
+
+        <!-- O JavaScript cria as paredes, os itens e os personagens neste tabuleiro. -->
+        <div id="labirinto" class="labirinto" aria-label="Labirinto do jogo"></div>
+
+        <p class="instrucoes">
+            Mova o Pac-Man com as setas. Colete todos os pontos e evite os fantasmas!
+        </p>
+        <button id="reiniciar" type="button">Reiniciar jogo</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Estilos gerais da página */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #101426;
+    color: #ffffff;
+}
+
+.painel-jogo {
+    width: min(100%, 760px);
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 14px;
+    color: #ffdf3d;
+}
+
+.informacoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.informacoes p {
+    margin: 0;
+}
+
+#mensagem {
+    color: #c9d6ff;
+}
+
+/* O tabuleiro usa uma grade. Cada célula tem exatamente o mesmo tamanho. */
+.labirinto {
+    --celula: 32px;
+    display: grid;
+    grid-template-columns: repeat(19, var(--celula));
+    grid-template-rows: repeat(15, var(--celula));
+    justify-content: center;
+    margin: 0 auto;
+    padding: 6px;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    background: #050914;
+    border: 3px solid #304bff;
+    border-radius: 8px;
+    box-shadow: 0 0 18px #304bff55;
+}
+
+.celula {
+    width: var(--celula);
+    height: var(--celula);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101426;
+}
+
+/* As paredes são blocos azuis sólidos. */
+.parede {
+    background: #2448d8;
+    border: 2px solid #5272ff;
+    border-radius: 5px;
+}
+
+/* Os pontos ficam no centro de cada célula. */
+.ponto::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: #ffe8a3;
+    border-radius: 50%;
+}
+
+/* Imagens padronizadas e posicionadas dentro das células */
+.personagem {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Fantasmas ficam em uma camada inferior */
+.fantasma {
+    z-index: 2;
+}
+
+/* Pac-Man fica na camada visual superior */
+.pacman {
+    z-index: 3;
+}
+
+button {
+    margin-top: 14px;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 7px;
+    background: #ffdf3d;
+    color: #151515;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffe976;
+}
+
+.instrucoes {
+    color: #c9d6ff;
+    line-height: 1.5;
+}
+
+@media (max-width: 680px) {
+    .labirinto {
+        --celula: min(4.8vw, 32px);
+    }
+
+    .personagem {
+        width: 88%;
+        height: 88%;
+    }
+
+    .informacoes {
+        justify-content: center;
+    }
+}
